@@ -1,0 +1,250 @@
+[{
+    "parts": [
+
+        {
+            "name": "cockpit",
+            "model": "cockpit.gltf",
+            "parent": "root",
+            "type": "root",
+            "position": [0, 15, 1],
+            "animations": [
+                {"type": "hide", "value": "view", "notEq": "cockpit"}
+            ]
+        },
+
+        {
+            "name": "3d-attitude",
+            "include": "3d-attitude",
+            "parent": "cockpit",
+            "type": "none",
+            "position": [-0.14, 0.38, -0.02],
+            "rotation": [13, 0, 0]
+        },
+        {
+            "name": "3d-altimeter",
+            "include": "3d-altimeter",
+            "parent": "cockpit",
+            "type": "none",
+            "position": [-0.14, 0.358, -0.102],
+            "rotation": [13, 0, 0]
+        },
+        {
+            "name": "3d-compass",
+            "include": "3d-compass",
+            "parent": "cockpit",
+            "type": "none",
+            "position": [-0.14, 0.336, -0.185],
+            "rotation": [13, 0, 0]
+        },
+
+        {
+            "name": "flaps_indicator",
+            "type": "none",
+            "node": "flaps_indicator",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "Y", "function": "{return Math.sqrt(geofs.animation.values['flapsPosition']) * 40;}", "ratio": -1}
+            ]
+        },
+
+        {
+            "name": "leftStick",
+            "type": "none",
+            "node": "stick_left",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "rawPitch", "ratio": -20}
+            ]
+        },
+
+        {
+            "name": "leftYoke",
+            "type": "none",
+            "node": "yoke_left",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "Y", "value": "roll", "ratio": -40}
+            ]
+        },
+
+        {
+            "name": "rudder_left",
+            "type": "none",
+            "node": "rudder_left",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "translate", "axis": "Y", "value": "yaw", "ratio": -0.1}
+            ]
+        },
+
+        {
+            "name": "rudder_right",
+            "type": "none",
+            "node": "rudder_right",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "translate", "axis": "Y", "value": "yaw", "ratio": 0.1}
+            ]
+        },
+
+        {
+            "name": "tiller",
+            "type": "none",
+            "node": "tiller",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "function": "{return geofs.animation.values['groundContact'] ? geofs.animation.values['yaw'] : 0}", "ratio": 60}
+            ]
+        },
+
+        {
+            "name": "rightStick",
+            "type": "none",
+            "node": "stick_right",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "rawPitch", "ratio": -20}
+            ]
+        },
+
+        {
+            "name": "rightYoke",
+            "type": "none",
+            "node": "yoke_right",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "Y", "value": "roll", "ratio": -40}
+            ]
+        },
+
+        {
+            "name": "throttle_1",
+            "type": "none",
+            "node": "throttle_1",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "throttle", "ratio": 45, "min": 0.001}
+            ]
+        },
+
+        {
+            "name": "throttle_2",
+            "type": "none",
+            "node": "throttle_2",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "throttle", "ratio": 45, "min": 0.001}
+            ]
+        },
+
+        {
+            "name": "reverse_1",
+            "type": "none",
+            "node": "reverse_1",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "throttle", "ratio": 100, "min": -1, "max": 0.001}
+            ]
+        },
+
+        {
+            "name": "reverse_2",
+            "type": "none",
+            "node": "reverse_2",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "throttle", "ratio": 100, "min": -1, "max": 0.001}
+            ]
+        },
+
+        {
+            "name": "cutoff_1",
+            "type": "none",
+            "node": "cutoff_1",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "enginesOn", "ratio": 30}
+            ]
+        },
+
+        {
+            "name": "cutoff_2",
+            "type": "none",
+            "node": "cutoff_2",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "enginesOn", "ratio": 30}
+            ]
+        },
+
+        {
+            "name": "air_brake",
+            "type": "none",
+            "node": "air_brake",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "airbrakesTarget", "ratio": -45}
+            ]
+        },
+
+        {
+            "name": "flaps",
+            "type": "none",
+            "node": "flaps",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "function": "{return ([0, 3, 13, 18, 28, 33, 40, 48, 65])[geofs.animation.values['flapsTarget']];}", "ratio": -1}
+            ]
+        },
+
+        {
+            "name": "trim",
+            "type": "none",
+            "node": "trim",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "trim", "ratio": -4320}
+            ]
+        },
+
+        {
+            "name": "gear_indicator_1",
+            "type": "none",
+            "node": "gear_indicator_1",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "show", "value": "gearPosition", "lt": 1}
+            ]
+        },
+
+        {
+            "name": "gear_indicator_2",
+            "type": "none",
+            "node": "gear_indicator_2",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "show", "value": "gearPosition", "lt": 0.01}
+            ]
+        },
+
+        {
+            "name": "parking_brake",
+            "type": "none",
+            "node": "parking_brake",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "parkingBrake", "ratio": -45}
+            ]
+        },
+
+        {
+            "name": "gear_lever",
+            "type": "none",
+            "node": "gear_lever",
+            "parent": "cockpit",
+            "animations": [
+                {"type": "rotate", "axis": "X", "value": "gearTarget", "ratio": 50}
+            ]
+        }
+    ]
+}]
